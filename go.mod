@@ -1,4 +1,4 @@
-module github.com/flocasts/dd-trace-go
+module gopkg.in/flocasts/dd-trace-go.v1
 
 go 1.12
 
