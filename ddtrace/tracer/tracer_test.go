@@ -19,11 +19,11 @@ import (
 	"testing"
 	"time"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/internal"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/globalconfig"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/log"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace/internal"
+	"gopkg.in/flocasts/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/flocasts/dd-trace-go.v1/internal/log"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/tinylib/msgp/msgp"

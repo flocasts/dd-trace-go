@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"google.golang.org/protobuf/proto"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/log"
+	"gopkg.in/flocasts/dd-trace-go.v1/internal/log"
 
 	"github.com/DataDog/datadog-go/statsd"
 	"github.com/DataDog/sketches-go/ddsketch"

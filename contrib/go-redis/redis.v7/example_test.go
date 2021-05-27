@@ -10,9 +10,9 @@ import (
 	"time"
 
 	"github.com/go-redis/redis/v7"
-	redistrace "gopkg.in/DataDog/dd-trace-go.v1/contrib/go-redis/redis.v7"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+	redistrace "gopkg.in/flocasts/dd-trace-go.v1/contrib/go-redis/redis.v7"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace/tracer"
 )
 
 // To start tracing Redis, simply create a new client using the library and continue

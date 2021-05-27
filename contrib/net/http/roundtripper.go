@@ -12,9 +12,9 @@ import (
 	"os"
 	"strconv"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace/tracer"
 )
 
 type roundTripper struct {

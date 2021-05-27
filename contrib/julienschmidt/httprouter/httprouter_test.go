@@ -10,10 +10,10 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/ext"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/mocktracer"
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace/tracer"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace/ext"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace/mocktracer"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace/tracer"
+	"gopkg.in/flocasts/dd-trace-go.v1/internal/globalconfig"
 
 	"github.com/julienschmidt/httprouter"
 	"github.com/stretchr/testify/assert"

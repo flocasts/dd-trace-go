@@ -17,7 +17,7 @@ import (
 	"github.com/DataDog/datadog-go/statsd"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/flocasts/dd-trace-go.v1/internal/globalconfig"
 )
 
 // testAPIKey is an example API key for validation purposes

@@ -8,7 +8,7 @@
 package httputil
 
 import (
-	"gopkg.in/DataDog/dd-trace-go.v1/ddtrace"
+	"gopkg.in/flocasts/dd-trace-go.v1/ddtrace"
 	"net/http"
 )
 

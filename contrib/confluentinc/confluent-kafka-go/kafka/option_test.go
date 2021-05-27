@@ -10,7 +10,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"gopkg.in/DataDog/dd-trace-go.v1/internal/globalconfig"
+	"gopkg.in/flocasts/dd-trace-go.v1/internal/globalconfig"
 )
 
 func TestAnalyticsSettings(t *testing.T) {
