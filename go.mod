@@ -13,7 +13,7 @@ require (
 	github.com/bradfitz/gomemcache v0.0.0-20190913173617-a41fca850d0b
 	github.com/confluentinc/confluent-kafka-go v1.7.0
 	github.com/emicklei/go-restful v2.15.0+incompatible
-	github.com/flocasts/gomemcache v0.0.1 // indirect
+	github.com/flocasts/gomemcache v0.0.1
 	github.com/garyburd/redigo v1.6.2
 	github.com/gin-gonic/gin v1.7.2
 	github.com/globalsign/mgo v0.0.0-20181015135952-eeefdecb41b8
@@ -52,6 +52,7 @@ require (
 	github.com/tidwall/buntdb v1.2.3
 	github.com/tinylib/msgp v1.1.2
 	github.com/twitchtv/twirp v8.0.0+incompatible
+	github.com/yosida95/uritemplate v2.0.0+incompatible // indirect
 	github.com/zenazn/goji v1.0.1
 	go.mongodb.org/mongo-driver v1.5.2
 	golang.org/x/net v0.0.0-20210503060351-7fd8e65b6420

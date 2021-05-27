@@ -52,6 +52,7 @@ func Middleware(opts ...Option) func(c *fiber.Ctx) error {
 		}
 		resourceName = c.Method() + " " + resourceName
 		span.SetTag(ext.ResourceName, resourceName)
+		c.Context().SetUserValue("span", span.Context())
 
 		// pass the execution down the line
 		err := c.Next()

@@ -63,11 +63,12 @@ func (c *Client) WithContext(ctx context.Context) *Client {
 }
 
 // startSpan starts a span from the context set with WithContext.
-func (c *Client) startSpan(resourceName string) ddtrace.Span {
+func (c *Client) startSpan(resourceName string, parentCtx ddtrace.SpanContext) ddtrace.Span {
 	opts := []ddtrace.StartSpanOption{
 		tracer.SpanType(ext.SpanTypeMemcached),
 		tracer.ServiceName(c.cfg.serviceName),
 		tracer.ResourceName(resourceName),
+		tracer.ChildOf(parentCtx),
 	}
 	if !math.IsNaN(c.cfg.analyticsRate) {
 		opts = append(opts, tracer.Tag(ext.EventSampleRate, c.cfg.analyticsRate))
@@ -79,96 +80,96 @@ func (c *Client) startSpan(resourceName string) ddtrace.Span {
 // wrapped methods:
 
 // Add invokes and traces Client.Add.
-func (c *Client) Add(item *memcache.Item) error {
-	span := c.startSpan("Add")
+func (c *Client) Add(item *memcache.Item, parentCtx ddtrace.SpanContext) error {
+	span := c.startSpan("Add", parentCtx)
 	err := c.Client.Add(item)
 	span.Finish(tracer.WithError(err))
 	return err
 }
 
 // CompareAndSwap invokes and traces Client.CompareAndSwap.
-func (c *Client) CompareAndSwap(item *memcache.Item) error {
-	span := c.startSpan("CompareAndSwap")
+func (c *Client) CompareAndSwap(item *memcache.Item, parentCtx ddtrace.SpanContext) error {
+	span := c.startSpan("CompareAndSwap", parentCtx)
 	err := c.Client.CompareAndSwap(item)
 	span.Finish(tracer.WithError(err))
 	return err
 }
 
 // Decrement invokes and traces Client.Decrement.
-func (c *Client) Decrement(key string, delta uint64) (newValue uint64, err error) {
-	span := c.startSpan("Decrement")
+func (c *Client) Decrement(key string, delta uint64, parentCtx ddtrace.SpanContext) (newValue uint64, err error) {
+	span := c.startSpan("Decrement", parentCtx)
 	newValue, err = c.Client.Decrement(key, delta)
 	span.Finish(tracer.WithError(err))
 	return newValue, err
 }
 
 // Delete invokes and traces Client.Delete.
-func (c *Client) Delete(key string) error {
-	span := c.startSpan("Delete")
+func (c *Client) Delete(key string, parentCtx ddtrace.SpanContext) error {
+	span := c.startSpan("Delete", parentCtx)
 	err := c.Client.Delete(key)
 	span.Finish(tracer.WithError(err))
 	return err
 }
 
 // DeleteAll invokes and traces Client.DeleteAll.
-func (c *Client) DeleteAll() error {
-	span := c.startSpan("DeleteAll")
+func (c *Client) DeleteAll(parentCtx ddtrace.SpanContext) error {
+	span := c.startSpan("DeleteAll", parentCtx)
 	err := c.Client.DeleteAll()
 	span.Finish(tracer.WithError(err))
 	return err
 }
 
 // FlushAll invokes and traces Client.FlushAll.
-func (c *Client) FlushAll() error {
-	span := c.startSpan("FlushAll")
+func (c *Client) FlushAll(parentCtx ddtrace.SpanContext) error {
+	span := c.startSpan("FlushAll", parentCtx)
 	err := c.Client.FlushAll()
 	span.Finish(tracer.WithError(err))
 	return err
 }
 
 // Get invokes and traces Client.Get.
-func (c *Client) Get(key string) (item *memcache.Item, err error) {
-	span := c.startSpan("Get")
+func (c *Client) Get(key string, parentCtx ddtrace.SpanContext) (item *memcache.Item, err error) {
+	span := c.startSpan("Get", parentCtx)
 	item, err = c.Client.Get(key)
 	span.Finish(tracer.WithError(err))
 	return item, err
 }
 
 // GetMulti invokes and traces Client.GetMulti.
-func (c *Client) GetMulti(keys []string) (map[string]*memcache.Item, error) {
-	span := c.startSpan("GetMulti")
+func (c *Client) GetMulti(keys []string, parentCtx ddtrace.SpanContext) (map[string]*memcache.Item, error) {
+	span := c.startSpan("GetMulti", parentCtx)
 	items, err := c.Client.GetMulti(keys)
 	span.Finish(tracer.WithError(err))
 	return items, err
 }
 
 // Increment invokes and traces Client.Increment.
-func (c *Client) Increment(key string, delta uint64) (newValue uint64, err error) {
-	span := c.startSpan("Increment")
+func (c *Client) Increment(key string, delta uint64, parentCtx ddtrace.SpanContext) (newValue uint64, err error) {
+	span := c.startSpan("Increment", parentCtx)
 	newValue, err = c.Client.Increment(key, delta)
 	span.Finish(tracer.WithError(err))
 	return newValue, err
 }
 
 // Replace invokes and traces Client.Replace.
-func (c *Client) Replace(item *memcache.Item) error {
-	span := c.startSpan("Replace")
+func (c *Client) Replace(item *memcache.Item, parentCtx ddtrace.SpanContext) error {
+	span := c.startSpan("Replace", parentCtx)
 	err := c.Client.Replace(item)
 	span.Finish(tracer.WithError(err))
 	return err
 }
 
 // Set invokes and traces Client.Set.
-func (c *Client) Set(item *memcache.Item) error {
-	span := c.startSpan("Set")
+func (c *Client) Set(item *memcache.Item, parentCtx ddtrace.SpanContext) error {
+	span := c.startSpan("Set", parentCtx)
 	err := c.Client.Set(item)
 	span.Finish(tracer.WithError(err))
 	return err
 }
 
 // Touch invokes and traces Client.Touch.
-func (c *Client) Touch(key string, seconds int32) error {
-	span := c.startSpan("Touch")
+func (c *Client) Touch(key string, seconds int32, parentCtx ddtrace.SpanContext) error {
+	span := c.startSpan("Touch", parentCtx)
 	err := c.Client.Touch(key, seconds)
 	span.Finish(tracer.WithError(err))
 	return err
